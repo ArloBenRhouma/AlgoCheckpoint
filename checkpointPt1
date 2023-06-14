@@ -1,0 +1,36 @@
+ALGORITHM checkpointPt1
+VAR
+   sentence: STRING;
+   wordCount, vowelCount, characterCount: INTEGER;
+
+BEGIN
+   wordCount := 0;    // Counter to track the number of words
+   vowelCount := 0 ;  // Counter to track the number of vowels
+   characterCount := 0;   // Counter to track the total number of characters
+
+   Write("Enter a sentence (end with a period): ");
+   Read(sentence);
+
+   FOR i FROM 0 TO sentence.length - 1 DO
+      character := sentence[i];   // Get the current character
+
+      IF character is a space THEN
+         IF characterCount > 0 THEN
+            wordCount := wordCount + 1;   // Increment word count when a space is encountered
+         END_IF
+      ELSE IF character is a lowercase vowel ('a', 'e', 'i', 'o', 'u') OR
+              character is an uppercase vowel ('A', 'E', 'I', 'O', 'U') THEN
+         vowelCount := vowelCount + 1;   // Increment vowel count when a vowel is found
+      END_IF
+
+      characterCount := characterCount + 1;   // Increment character count for every character
+   END_FOR
+
+   IF characterCount > 0 THEN
+      wordCount := wordCount + 1;   // Increment word count for the last word in the sentence
+   END_IF
+
+   Write("Number of words: ", wordCount);   // Display the number of words
+   Write("Number of vowels: ", vowelCount);   // Display the number of vowels
+
+END

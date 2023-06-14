@@ -1,0 +1,29 @@
+ALGORITHM checkpointPt2
+
+    VAR
+        set1: ARRAY_OF INTEGER;      // First set of integers
+        set2: ARRAY_OF INTEGER;      // Second set of integers
+        distinctSum: INTEGER;       // Sum of distinct elements
+
+    BEGIN
+        distinctSum := 0;    // Initialize the distinctSum
+
+        // Iterate through set1 and add distinct elements to the sum
+        FOR i FROM 0 TO set1.length - 1 DO
+            IF (set1[i]) NOT IN set2 THEN
+                distinctSum := distinctSum + set1[i];   // Add the distinct element to the sum
+            END_IF
+        END_FOR
+
+        // Iterate through set2 and add distinct elements to the sum
+        FOR j FROM 0 TO set2.length - 1 DO
+            IF (set2[j]) NOT IN set1 THEN
+                distinctSum := distinctSum + set2[j];   // Add the distinct element to the sum
+            END_IF
+        END_FOR
+
+        Write ("distinct sum is: ",distinctSum);   // Return the sum of distinct elements
+
+    END
+
+END 
